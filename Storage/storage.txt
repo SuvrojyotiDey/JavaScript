@@ -1,0 +1,31 @@
+--- Storage in Javascript ---
+
+Types:- 
+    i) Local
+    ii) Session
+    iii) Cookies
+
+All three are stored in the browser.
+They are browser independent. 
+
+i) Cookies:
+        Storage Size: 4KB
+        Accessibility: can be accessed from any window of the same browser.
+        Expire duration: manually needs to be set on when it needs to get removed.
+        Storage Location: browser and server.
+        sent with request: yes (for authentication purposes).
+
+ii) Local:
+        Storage Size: 10MB
+        Accessibility: can be accessed from any window of the same browser.
+        Expire duration: Never expires until you reset the browser.(no effect on refresh)
+        Storage Location: browser only.
+        sent with request: no such facility.
+
+iii) Session:
+        Storage Size: 5MB
+        Accessibility: can be accessed only on that tab of the browser.
+        Expire duration: once the tab is closed in the browser.(refresh reset's the tab)
+        Storage Location: browser only.
+        sent with request: no such facility.
+
