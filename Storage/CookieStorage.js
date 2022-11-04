@@ -22,7 +22,7 @@ document.cookie = "firstName=Suvro; secure";
 
 const expiryDate = new Date();
 /**
- * new Date() - will give current dat
+ * new Date() - will give current date
  */
 
 expiryDate.setMonth(expiryDate.getMonth() + 3);
