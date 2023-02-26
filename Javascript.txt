@@ -1,2 +1,2 @@
 Javascript:
-It is synchronous meaning doing one thing at a time.
+JavaScript is a single-threaded, non-blocking, asynchronous, concurrent programming language with lots of flexibility.
