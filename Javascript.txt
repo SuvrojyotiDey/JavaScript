@@ -1,2 +1,80 @@
-Javascript:
 JavaScript is a single-threaded, non-blocking, asynchronous, concurrent programming language with lots of flexibility.
+----------------------------------------------------------------------------------------------------
+Javascript Execution Context
+
+- Global Execution context (For browser its `this` i.e window object and for nodejs its {})
+- Function Execution context
+- Eval Execution context (related to mongoose)
+
+Two phases
+- Memory creation phase (memory allocation for declarations)
+- Execution phase
+
+How code executes in Javascript?
+Example :
+
+let val1 = 10;
+let val2 = 5;
+function addNum(num1, num2){
+    let total = num1 + num2;
+}
+let result1 = addNum(val1, val2);
+let result2 = addNum(10, 2);
+
+Steps :
+
+- Global Execution or Global Environment (All code runs through and allocates to `this`)
+- Memory creation phase
+    val1 -> undefined
+    val2 -> undefined
+    addNum -> function definition
+    result1 -> undefined
+    result2 -> undefined
+- Execution phase
+    val1 <- 10
+    val2 <- 5
+    addNum -> new Execution context (Deletes after execution)
+                |------------------|
+                |   new variable   |
+                |    environment   |
+                |        +         |
+                |     Execution    |
+                |      Thread      |
+                |------------------|-------------> - Memory Creation phase
+                                                        val1 -> undefined
+                                                        val2 -> undefined
+                                                        total -> undefined
+                                                   - Execution phase
+                                                        num1 -> 10
+                                                        num2 -> 5
+                                                        total -> 15 (returned to global execution context)
+    result1 <- 15
+    addNum -> new Execution context (Deletes after execution)
+                |------------------|
+                |   new variable   |
+                |    environment   |
+                |        +         |
+                |     Execution    |
+                |      Thread      |
+                |------------------|-------------> - Memory Creation phase
+                                                        total -> undefined
+                                                   - Execution context
+                                                        num1 -> 10
+                                                        num2 -> 2
+                                                        total -> 12 (returned to global execution context)
+    result2 <- 12
+    Execution completed
+
+call stack :  Work on LIFO i.e last in first out                                             
+
+|                   |
+|                   |
+|                   |
+|                   |
+|-------------------|
+| Global Execution  |
+|-------------------|
+
+----------------------------------------------------------------------------------------------------
+
+                                                        
